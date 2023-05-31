@@ -2,6 +2,5 @@
 
 ./prepfolder.sh
 ./run.sh
-./installmods.sh
-./installmissions.sh
+./cheapinstall.sh
 ./restart.sh
