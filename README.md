@@ -34,7 +34,7 @@ echo "[steamguardcode]" > steamguard
 - dexec.sh: invokes docker exec. Can only take a single argument.
 - dockerfile.db: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by prepfolder.sh
 - missionlist: contains idnumbers and mission names. Mission names *MUST* end with .[mapcode].
-- modlist: contains idnumbers and modnames. Mod names are arbitrary, but this system assumes names contain only [A-Za-z0-9._-]*.
+- modlist: contains idnumbers and modnames. Mod names are arbitrary, but this system assumes names contain only [0-9A-Za-z._-]*.
 - patharma: contains the full path to .../Arma\ 3\ Server, it is rendered as /Arma 3 Server though, be careful with that.
 - pathmod: contains the full path to .../107410.
 - prepfolder.sh: poorly named, creates .../mods and .../mods/lns; copies runarma.sh and server.cfg to .../mods; discharges dockerfile.db.
