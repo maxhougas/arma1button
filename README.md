@@ -33,6 +33,9 @@ echo "[steamguardcode]" > steamguard
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
 - dockerfile.db: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by prepfolder.sh
+- installmod.sh: invokes docker exec > steamcmd.sh. Useful for mods that DLs that time out. Does not link anything.
+- linkkey.sh: invoked by cheapinstall.sh. Creates softlinks.
+- linkmod.sh: invoked by cheapinstall.sh. Creates softlinks.
 - missionlist: contains idnumbers and mission names. Mission names *MUST* end with .[mapcode].
 - modlist: contains idnumbers and modnames. Mod names are arbitrary, but this system assumes names contain only [0-9A-Za-z._-]*.
 - patharma: contains the full path to .../Arma\ 3\ Server, it is rendered as /Arma 3 Server though, be careful with that.
@@ -49,5 +52,3 @@ echo "[steamguardcode]" > steamguard
 ### Depricated
 - installmods.sh: invokes docker exec > steamcmd.sh to download mods. Creates appropriate softlinks and discharges the modline file.
 - installmissions.sh: invokes docker exec > steamcmd.sh to download missions. Creates softlinks.
-- linkmod.sh: invoked by installmods.sh. Creates softlinks.
-- linkkey.sh: invoked by installmods.sh. Creates softlinks.
