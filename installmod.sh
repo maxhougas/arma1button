@@ -2,6 +2,11 @@
 
 #$1 = idno
 
+if [ -z $1 ]; then
+echo "empty?"
+exit 1
+fi
+
 mod=$(grep $1 modlist)
 mission=$(grep $1 missionlist)
 
