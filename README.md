@@ -26,6 +26,11 @@ echo "[steamguardcode]" > steamguard
 - Individual file names in .../addons are normalized. Soft links are created in .../Arma\ 3\ Server/keys and .../Arma\ 3\ Server/mods/lns
 - The file modline is discharged to .../Arma\ 3\ Server/mods
 
+## Folder Structure
+- ./107410/ Download path for all ArmA mods as per steamcmd
+- ./mods/ Contains soft links to mods, the runscript runarma.sh, and the modline file
+- ./save/ This is supposed to be where ArmA stores persistent saves. Useful for Antistasi.
+
 ## Files
 - _AACREATEARMA.sh: Entrypoint.
 - build.sh: invokes docker build. Will attempt to build arma-i using maxhougas/steambox-i:db.
@@ -38,6 +43,7 @@ echo "[steamguardcode]" > steamguard
 - linkmod.sh: invoked by cheapinstall.sh. Creates softlinks.
 - missionlist: contains idnumbers and mission names. Mission names *MUST* end with .[mapcode].
 - modlist: contains idnumbers and modnames. Mod names are arbitrary, but this system assumes names contain only [0-9A-Za-z._-]*.
+- normalize.sh: iterates though modlist and normalizes folder and file names in ./107410/
 - patharma: contains the full path to .../Arma\ 3\ Server, it is rendered as /Arma 3 Server though, be careful with that.
 - pathmod: contains the full path to .../107410.
 - prepfolder.sh: poorly named, creates .../mods and .../mods/lns; copies runarma.sh and server.cfg to .../mods; discharges dockerfile.db.
