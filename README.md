@@ -54,7 +54,8 @@ echo "[steamguardcode]" > steamguard
 - start.sh: invokes docker stop.
 - steamguard: contains your steamguard code.
 - steaminst: a steam CMD script file. Will contain plaintext credentials. Dischaged and deleted after use by cheapinstall.sh. Not included.
-- stop.sh: invokes docker start.
+- stop.sh: invokes docker stop.
+- updatearma.sh: invokes /steam/steam.sh to update the ArmA server executable.
 ### Depricated
 - installmods.sh: invokes docker exec > steamcmd.sh to download mods. Creates appropriate softlinks and discharges the modline file.
 - installmissions.sh: invokes docker exec > steamcmd.sh to download missions. Creates softlinks.
