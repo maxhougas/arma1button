@@ -15,6 +15,9 @@
 426629791=breakingpoint
 450814997=cba_a3
 2511318948=ctabnswdg
+1981964169=cup20
+583544987=cupmap
+583496184=cupterraincore
 2467590475=emapacev
 333310405=enhancedmove
 366425329=firaws
@@ -47,9 +50,12 @@
 843425103=rhsafrf
 843593391=rhsgref
 843577117=rhsusaf
+843632231=rhssaf
 1553839624=roysarsenal
 894678801=tfaradio
-1779063631=zeusenhanced
+2554978758=unsungrestab
+1779063631=zen
+##END_MODS##
 
 ##SCENARIOS##
 2897579624=lish.vr
