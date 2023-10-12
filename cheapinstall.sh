@@ -22,6 +22,11 @@ rm mods/steaminst
 #Start modline
 echo -n \" > mods/modline
 
+for line in $(cat dlclist)
+do
+ echo -n "$line;" >> mods/modline
+done
+
 #iterate modlist
 for line in $(cat modlist)
 do
