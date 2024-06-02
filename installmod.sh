@@ -12,7 +12,7 @@ mission=$(grep $1 missionlist)
 
 if [ -n $mod -o -n $mission ]; then
 
-docker exec -ti arma-s /steam/steamcmd.sh +login $(cat creds) +workshop_download_item 107410 $1 +quit
+docker exec -ti arma /steam/steamcmd.sh +login $(cat creds) +workshop_download_item 107410 $1 +quit
 
 else
 

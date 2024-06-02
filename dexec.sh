@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker exec -ti arma-s $1
+docker exec -ti arma $1

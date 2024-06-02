@@ -33,7 +33,7 @@ echo "[steamguardcode]" > steamguard
 
 ## Files
 - _AACREATEARMA.sh: Entrypoint.
-- build.sh: invokes docker build. Will attempt to build arma-i using maxhougas/steambox-i:db.
+- build.sh: invokes docker build. Will attempt to build arma using maxhougas/steambox:db.
 - cheapinstall.sh installs and links mods and missions. Does the jobs of installmods.sh, installmissions.sh, linkmod.sh, and linkkey.sh.
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
@@ -49,7 +49,7 @@ echo "[steamguardcode]" > steamguard
 - prepfolder.sh: poorly named, creates .../mods and .../mods/lns; copies runarma.sh and server.cfg to .../mods; discharges dockerfile.db.
 - README.MD: this.
 - restart.sh: invokes docker stop and docker start.
-- run.sh: invokes docker run. Will attempt to run arma-s. Incoming ports are specified here. Bind mounts are specified here.
+- run.sh: invokes docker run. Will attempt to run arma. Incoming ports are specified here. Bind mounts are specified here.
 - server.cfg: config file. Not included.
 - start.sh: invokes docker stop.
 - steamguard: contains your steamguard code.

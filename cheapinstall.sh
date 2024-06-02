@@ -14,7 +14,7 @@ sed -i 's:=[A-Za-z0-9._-]*::g' mods/steaminst
 echo "quit" >> mods/steaminst
 
 
-docker exec -ti arma-s /steam/steamcmd.sh +runscript "$arma/mods/steaminst"
+docker exec -ti arma /steam/steamcmd.sh +runscript "$arma/mods/steaminst"
 
 #obliterate credentials
 rm mods/steaminst
@@ -51,9 +51,9 @@ do
 
 id=$(echo $line | sed "s:=[A-Za-z0-9._-]*::g")
 mname=$(echo $line | sed "s:[0-9]*=::g")
-file=$(docker exec -t arma-s ls -1 $mods/$id | grep -io "[a-zA-Z0-9._-]*")
+file=$(docker exec -t arma ls -1 $mods/$id | grep -io "[a-zA-Z0-9._-]*")
 
 
-docker exec -t arma-s ln -sfT $mods/$id/$file "$arma/mpmissions/$mname.pbo"
+docker exec -t arma ln -sfT $mods/$id/$file "$arma/mpmissions/$mname.pbo"
 
 done
