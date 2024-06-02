@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker stop arma-s
+docker stop arma
