@@ -7,7 +7,7 @@ cp server.cfg mods
 cp runarma.sh mods
 
 #Pull base image
-docker pull maxhougas/steambox-i:db
+docker pull maxhougas/steambox:db
 
 #Discharge dockerfile
 echo "FROM maxhougas/steambox:db" > dockerfile.db
