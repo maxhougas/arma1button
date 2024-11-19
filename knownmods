@@ -12,13 +12,12 @@
 723217262=achilles
 2867537125=antistasithemod
 2841981280=antistasiuhb
-2791403093=betterinvent
 767380317=blastcoresav
 426629791=breakingpoint
 450814997=cba_a3
 2511318948=ctabnswdg
-1981964169=cup20
 583544987=cupmap
+1981964169=cupmap2
 583496184=cupterraincore
 2467590475=emapacev
 333310405=enhancedmove
@@ -43,6 +42,7 @@
 249904386=firewillprojtornado
 2848439377=firewillprowler
 1974798269=firveteransreskin
+3346427969=hatg 
 1858075458=lambsdanger
 1808238502=lambssupression
 1858070328=lambsrpg
@@ -57,8 +57,18 @@
 1553839624=roysarsenal
 894678801=tfaradio
 2554978758=unsungrestab
+1926513010=virolahti
 1779063631=zen
 ##END_MODS##
+
+##CLIENTSIDES##
+2791403093=betterinvent
+861133494=jsrs
+945476727=jsrsafrf
+1180534892=jsrsgref
+1486541773=1486541773
+1180533757=jsrsusaf
+##END_CLIENTSIDES##
 
 ##SCENARIOS##
 2897579624=lish.vr
@@ -66,3 +76,4 @@
 705986840=dynamicrecon.altis
 1576437226=dynamicbulwarks.altis
 2667104050=directaction.stratis
+##END_SCENARIOS##
