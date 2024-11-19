@@ -55,7 +55,7 @@
 843577117=rhsusaf
 843632231=rhssaf
 1553839624=roysarsenal
-894678801=tfaradio
+894678801=tfar
 2554978758=unsungrestab
 1926513010=virolahti
 1779063631=zen
@@ -66,14 +66,15 @@
 861133494=jsrs
 945476727=jsrsafrf
 1180534892=jsrsgref
-1486541773=1486541773
+1486541773=jsrssaf
 1180533757=jsrsusaf
 ##END_CLIENTSIDES##
 
 ##SCENARIOS##
-2897579624=lish.vr
-722675841=dynamicrecon.stratis
-705986840=dynamicrecon.altis
-1576437226=dynamicbulwarks.altis
 2667104050=directaction.stratis
+705986840=dynamicrecon.altis
+722675841=dynamicrecon.stratis
+1576437226=dynamicbulwarks.altis
+2897579624=lish.vr
 ##END_SCENARIOS##
+
