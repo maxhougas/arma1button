@@ -6,9 +6,6 @@ mkdir mods/lns
 cp server.cfg mods
 cp runarma.sh mods
 
-#Pull base image
-docker pull maxhougas/steambox:db
-
 #Discharge dockerfile
 echo "FROM maxhougas/steambox:db" > dockerfile.db
 echo "RUN ./steamcmd.sh +set_steam_guard_code $(cat steamguard) +login $(cat creds) +app_update 233780﻿ -beta creatordlc +quit" >> dockerfile.db
