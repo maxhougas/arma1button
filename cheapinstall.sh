@@ -14,7 +14,7 @@ sed -i 's:=[A-Za-z0-9._-]*::g' mods/steaminst
 echo "quit" >> mods/steaminst
 
 
-docker exec -ti arma /steam/steamcmd.sh +runscript "$arma/mods/steaminst"
+docker exec -t arma /steam/steamcmd.sh +runscript "$arma/mods/steaminst"
 
 #obliterate credentials
 rm mods/steaminst
