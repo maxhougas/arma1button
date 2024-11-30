@@ -5,22 +5,24 @@
 
 mod=$(cat pathmod)
 arma=$(cat patharma)
+dexec='docker exec -t arma'
 
 #normalize addons folder
-if [ -n "$(docker exec -t arma ls $mod/$1 | grep -o 'Addons')" ]; then
-docker exec -t arma mv $mod/$1/Addons $mod/$1/addons
+addonsf=$($dexec ls $mod/$1 | grep -io addons)
+if [ -n $addonsf ] && [ $addonsf != addons ]; then
+$dexec mv $mod/$1/$addonsf $mod/$1/addons
 fi
 
 #normalize pbo names
-for pname in $(docker exec -t arma ls $mod/$1/addons | grep -io "[A-Z0-9a-z._-]*")
+for pname in $($dexec ls $mod/$1/addons | grep -io "[a-zA-Z0-9._-]*")
 do
 
 npname=$(echo $pname | tr [A-Z] [a-z])
 if [ "$pname" != "$npname" ]; then
-docker exec -t arma  mv $mod/$1/addons/$pname $mod/$1/addons/$npname
+$dexec mv $mod/$1/addons/$pname $mod/$1/addons/$npname
 fi
 
 done
 
 #link
-docker exec -t arma ln -sT $mod/$1 "$arma/mods/lns/$2"
+$dexec ln -sfT $mod/$1 "$arma/mods/lns/$2"

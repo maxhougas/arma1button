@@ -1,6 +1,9 @@
 #!/bin/bash
 
-./prepfolder.sh
+./build.sh
 ./run.sh
-./cheapinstall.sh
+./validatedl.sh
+./reinstall.sh
+./finalizemods.sh
+./finalizemissions.sh
 ./restart.sh
