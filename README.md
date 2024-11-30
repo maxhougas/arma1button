@@ -35,11 +35,10 @@ echo "[steamguardcode]" > steamguard
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
 - dockerfile.db: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by prepfolder.sh
-- finalizemissions.sh: creates symlinks from arma:.../mpmissions to arma:.../107410. Normalizes filenames.
-- finalizemods.sh invokes linkkey.sh and linkmod.sh. Creates symlinks from :arma.../mods/lns to arma:.../107410. Normalizes filenames.
-- installmod.sh: invokes docker exec > steamcmd.sh. Useful for mods that DLs that time out. Does not link anything.
-- linkkey.sh: invoked by finalizemods.sh. Creates softlinks.
-- linkmod.sh: invoked by finalizemods.sh. Creates softlinks.
+- finalizemissions.sh: creates symlinks from arma:.../mpmissions to arma:.../107410.
+- finalizemods.sh iterates modlist, and invokes linkkey.sh and linkmod.sh.
+- linkkey.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
+- linkmod.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
 - missingmissions: discharged by validatedl.sh. Contains missing or incomplete missions.
 - missingmods: discharged by validatedl.sh. Contains missing or incomplete mods.
 - missionlist: contains idnumbers and mission names. Mission names *MUST* end with .[mapcode].
@@ -59,6 +58,7 @@ echo "[steamguardcode]" > steamguard
 
 ### Depricated
 - cheapinstall.sh installs and links mods and missions. Does the jobs of installmods.sh, installmissions.sh, linkmod.sh, and linkkey.sh.
+- installmod.sh: invokes docker exec > steamcmd.sh. Useful for mods that DLs that time out. Does not link anything.
 - installmods.sh: invokes docker exec > steamcmd.sh to download mods. Creates appropriate softlinks and discharges the modline file.
 - installmissions.sh: invokes docker exec > steamcmd.sh to download missions. Creates softlinks.
 - normalize.sh: iterates though modlist and normalizes folder and file names in ./107410/
