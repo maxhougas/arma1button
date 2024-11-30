@@ -1,4 +1,4 @@
-# GUESS WHAT! THIS PROJECT IS COMPLETELY UNTESTED!
+# Massive rewrite in progress. Tested successfully one (1) time! Documentation to follow
 # ArmA1button
 1 button (almost) build, deploy ArmA 3 server with mods
 
