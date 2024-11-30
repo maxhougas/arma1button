@@ -5,14 +5,17 @@
 ## The bullshit
 - Get docker.io
 - Create files creds and steamguard with your steam credentials and current steamguard code.
-- Create file server.cfg as per https://community.bistudio.com/wiki/Arma_3:_Server_Config_File
+- Create files modlist and missionlist as per the following section MODS. Examples included.
+- Create file server.cfg as per https://community.bistudio.com/wiki/Arma_3:_Server_Config_File. Example is included.
 ```
-echo "[steamuid] [steampasswd]" > creds
-echo "[steamguardcode]" > steamguard
+echo -n "[steamuid] [steampasswd]" > creds
+echo -n "[steamguardcode]" > steamguard
 ```
-- When ./build.sh is invoked by _AACREATEARMA.sh > prepfolder.sh, Steam should reject your Steamguard code.
-- Immediate check your email and update the steamguard file.
-- Run it from the top again. If you're fast enough it should accept the old code.
+- When ./build.sh is invoked by _AACREATEARMA.sh, Steam should reject your Steamguard code.
+- Immediately check your email and update the steamguard file.
+- Run it from the top again. If you're fast enough it should accept the code.
+- Working directory is arma:.../Arma\ 3\ Server; however, most action takes place in arma:.../Arma\ 3\ Server/mods.
+- ArmA binaries can be updated by invoking updatearma.sh.
 
 ## Mods
 - The modlist and missionlist files are both of the following format
@@ -20,11 +23,12 @@ echo "[steamguardcode]" > steamguard
 [IDNUMBER]=[ARBITRARYNAME]
 ```
 - Mods can be named anything; mission names MUST end with .[mapcode].
-- Missions are downloaded in the usual manner. Softlinks are created in .../Arma\ 3\ Server/mpmissions.
-- Mods are downloaded in the usual manner.
-- If the addons and keys folders names are unnormalized, they are normalized.
-- Individual file names in .../addons are normalized. Soft links are created in .../Arma\ 3\ Server/keys and .../Arma\ 3\ Server/mods/lns
-- The file modline is discharged to .../Arma\ 3\ Server/mods
+- Missions and mods are downloaded in the usual manner by invoking validatedl.sh then reinstall.sh. Successful downloads end up in arma:...content/107410
+- reinstall.sh will discharge steaminst, copy it to arma:.../mods, delete ./steaminst, invoke steamcmd, and delete arma:.../mods/steaminst.
+- If the addons and keys folders' names are unnormalized, they are normalized.
+- Individual file names in arma:.../addons are normalized. Soft links are created in arma:.../Arma\ 3\ Server/keys and arma:.../Arma\ 3\ Server/mods/lns
+- The file modline is discharged to arma:.../Arma\ 3\ Server/mods
+- Missions and mods can be updated by invoking updateall.sh then reinstall.sh
 
 ## Folder Structure
 - /save/ This is supposed to be where ArmA stores persistent saves. Useful for Antistasi.
@@ -34,8 +38,8 @@ echo "[steamguardcode]" > steamguard
 - build.sh: invokes docker build. Will attempt to build arma using maxhougas/steambox:db.
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
-- dockerfile.db: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by prepfolder.sh
-- finalizemissions.sh: creates symlinks from arma:.../mpmissions to arma:.../107410.
+- dockerfile.db: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by build.sh.
+- finalizemissions.sh: creates softlinks from arma:.../mpmissions to arma:.../107410....
 - finalizemods.sh iterates modlist, and invokes linkkey.sh and linkmod.sh.
 - linkkey.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
 - linkmod.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
