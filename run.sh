@@ -8,5 +8,4 @@ docker run -d \
  -p 27015:27015/udp \
  -p 27031-27036:27031-27036/udp \
  -v $(pwd)/save:/root/.local/share/Arma\ 3\ -\ Other\ Profiles/Player \
- -v $(pwd)/mods:/root/Steam/steamapps/common/Arma\ 3\ Server/mods \
  --name arma arma
