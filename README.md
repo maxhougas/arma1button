@@ -56,9 +56,11 @@ echo -n "[steamguardcode]" > steamguard
 - server.cfg: config file. Example included.
 - steamguard: contains your steamguard code.
 - steaminst: a steam CMD script file. Will contain plaintext credentials. Dischaged and deleted after use by reinstall.sh. Not included.
-- updateall.sh: copies missionlist and modlist to missing missions and missingmods. reinstall.sh will then attempt to download updates from steam.
+- uninstallmod.sh: uninstalls a single mod. Deletes data and links. Scrubs the app manifest and modline.
+- updateall.sh: copies missionlist and modlist to missing missions and missingmods.
 - updatearma.sh: invokes arma:/steam/steam.sh to update the ArmA server executable.
-- validatedl.sh: discharges missingmissions and missingmods for use by reinstall.sh.
+- validatedl.sh: discharges missingmissions and missingmods for use by reinstall.sh. Does not work if no mods are installed.
+- wipemods.sh: uninstalls all mods. Deletes data and links. Scrubs the app manifest and modline.
 
 ### Depricated
 - cheapinstall.sh installs and links mods and missions. Does the jobs of installmods.sh, installmissions.sh, linkmod.sh, and linkkey.sh.
