@@ -1,16 +1,21 @@
 ##BASE##
 233780=a3server
 107410=a3client
-1227700=sogprairie(!?)
+1227700=sogprairie!
 ##END_BASE##
 
 ##TOPMODS##
 2867537125=antistasithemod
+1199493544=arma2anims
+2551407805=bmcpmcuniforms
 450814997=cbaa3
 583496184=cupcore
 3354581482=cv22osprey
 333310405=enhancedmove
 1686321576=futurevlift
+3375033347=lesserswamp
+3014195090=liberationrxt
+612930542=rdscivlian
 843425103=rhsafrf
 843577117=rhsusaf
 ##END_TOPMODS##
@@ -30,6 +35,10 @@
 1726494027=kujari
 1926513010=virolahti
 ##END_CUPSMODS##
+
+##A2ANIMRDSCIVCUPMAP2MODS##
+1971168212=dayz
+##END_A2ANIMRDSCIVCUPMAP2MODS##
 
 ##RHSMODS##
 843593391=rhsgref
@@ -77,7 +86,6 @@
 1858070328=lambsrpg
 1508091616=metismarker
 1388025252=mxretexture
-2551407805=pmcuniforms
 1553839624=roysarsenal
 2554978758=unsungrestab
 ##END_MODS##
