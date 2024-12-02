@@ -2,7 +2,7 @@
 
 ./build.sh
 ./run.sh
-./validatedl.sh
+./updateall.sh
 ./reinstall.sh
 ./finalizemods.sh
 ./finalizemissions.sh

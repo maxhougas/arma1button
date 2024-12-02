@@ -3,15 +3,15 @@
 arma=$(cat patharma)
 mod=$(cat pathmod)
 dexec="docker exec -t arma"
-appwork="/root/Steam/steamapps/workshop/appworkshop_107410.acf"
+workshop=$(cat workshop)
 
 #remove record from appworkshop
-installed=$($dexec sed -z 's:\n:!!:g' $appwork | grep -Po $1.*?size.*?} | sed 's:":\\":g')
-details=$($dexec sed -z 's:\n:!!:g' $appwork | grep -o Details.*$ | grep -Po $1.*?timetouched.*?} | sed 's:":\\":g')
-$dexec sed -zi 's:\n:!!:g' $appwork
-$dexec sed -i "s:\"$installed::" $appwork
-$dexec sed -i "s:\"$details::" $appwork
-$dexec sed -i "s:!!:\n:g" $appwork
+installed=$($dexec sed -z 's:\n:!!:g' $workshop | grep -Po $1.*?size.*?} | sed 's:":\\":g')
+details=$($dexec sed -z 's:\n:!!:g' $workshop | grep -o Details.*$ | grep -Po $1.*?timetouched.*?} | sed 's:":\\":g')
+$dexec sed -zi 's:\n:!!:g' $workshop
+$dexec sed -i "s:\"$installed::" $workshop
+$dexec sed -i "s:\"$details::" $workshop
+$dexec sed -i "s:!!:\n:g" $workshop
 
 #remove data
 $dexec rm -rf "$mod/$1"
