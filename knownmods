@@ -53,9 +53,6 @@
 ##END_CBARHSMODS##
 
 ##LRXMODS##
-2133941118=lrxaltis
-2733020938=lrxcamlaonam
-2052900338=lrxvirolahti
 ##END_LRXMODS##
 
 ##MODS##
@@ -114,6 +111,9 @@
 705986840=dynamicrecon.altis
 722675841=dynamicrecon.stratis
 2897579624=lish.vr
+2133941118=lrx.altis
+2733020938=lrx.cam_lao_nam
 1550192277=lrx.malden
+2052900338=lrx.virolahti
 ##END_SCENARIOS##
 
