@@ -14,7 +14,9 @@
 333310405=enhancedmove
 1686321576=futurevlift
 3375033347=lesserswamp
-3014195090=liberationrxt
+3009623233=liberationnormandy
+3110549461=lrxtextures
+3014195090=lrxtemplate
 612930542=rdscivlian
 843425103=rhsafrf
 843577117=rhsusaf
@@ -34,6 +36,7 @@
 1981964169=cupmap2
 1726494027=kujari
 1926513010=virolahti
+2950257727=yulakia
 ##END_CUPSMODS##
 
 ##A2ANIMRDSCIVCUPMAP2MODS##
@@ -48,6 +51,12 @@
 ##CBARHSMODS##
 3366918628=realflashlights
 ##END_CBARHSMODS##
+
+##LRXMODS##
+2133941118=lrxaltis
+2733020938=lrxcamlaonam
+2052900338=lrxvirolahti
+##END_LRXMODS##
 
 ##MODS##
 463939057=ace
@@ -105,5 +114,6 @@
 705986840=dynamicrecon.altis
 722675841=dynamicrecon.stratis
 2897579624=lish.vr
+1550192277=lrx.malden
 ##END_SCENARIOS##
 
