@@ -10,7 +10,6 @@ echo "RUN mkdir -p mods/lns" >> dockerfile.db
 echo "RUN mkdir -p /root/Steam/steamapps/workshop/" >> dockerfile.db
 echo "COPY server.cfg mods/server.cfg" >> dockerfile.db
 echo "COPY runarma.sh mods/runarma.sh" >> dockerfile.db
-echo "RUN sed -z 's:\n:;:g' mods/dlclist | sed 's:^:\":' | sed 's:;$:\":' > mods/modline" >> dockerfile.db
 echo "CMD ./mods/runarma.sh" >> dockerfile.db
 
 #build image
