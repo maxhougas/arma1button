@@ -10,7 +10,7 @@ echo "RUN mkdir -p mods/lns" >> dockerfile.db
 echo "RUN mkdir -p /root/Steam/steamapps/workshop/" >> dockerfile.db
 echo "COPY server.cfg mods/server.cfg" >> dockerfile.db
 echo "COPY runarma.sh mods/runarma.sh" >> dockerfile.db
-echo "CMD ./mods/runarma.sh" >> dockerfile.db
+echo "CMD tail -f /dev/null" >> dockerfile.db
 
 #build image
 docker build -t arma -f dockerfile.db .
