@@ -22,4 +22,4 @@ $dexec rm -f "$arma/mpmissions/$name.pbo"
 
 name=$(grep $1 listmods | grep -Po "(?<==)[a-zA-Z0-9._-]*")
 $dexec rm -f "$arma/mods/lns/$name"
-$dexec sed -i "s:;mods/lns/$name::g" "$arma/mods/modline"
+sed -i "s:;mods/lns/$name::g" ./modline

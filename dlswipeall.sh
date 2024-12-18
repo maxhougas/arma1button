@@ -17,7 +17,7 @@ fnames=$($dexec ls "$arma/mpmissions" | grep -o '[a-zA-Z0-9._-]*' | sed "s:^:/mp
 $dexec rm -f $fnames
 
 #scrub modline
-$dexec sed -i 's:;mods/.*$:":' "mods/modline"
+sed -i 's:;mods/.*$:":' ./modline
 
 #delete moddata
 fnames=$($dexec ls "$mod" | grep -o '[0-9]*' | sed "s:^:$mod/:g" | sed -z 's:\n: :g')

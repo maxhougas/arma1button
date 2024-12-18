@@ -27,7 +27,7 @@ echo -n "[steamguardcode]" > steamguard
 - reinstall.sh will discharge steaminst, copy it to arma:.../mods, delete ./steaminst, invoke steamcmd, and delete arma:.../mods/steaminst.
 - If the addons and keys folders' names are unnormalized, they are normalized.
 - Individual file names in arma:.../addons are normalized. Soft links are created in arma:.../Arma\ 3\ Server/keys and arma:.../Arma\ 3\ Server/mods/lns
-- The file modline is discharged to arma:.../Arma\ 3\ Server/mods
+- The file modline is discharged to ./modline
 - Missions and mods can be updated by invoking updateall.sh then reinstall.sh
 
 ## Files

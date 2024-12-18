@@ -16,6 +16,5 @@ mname=$(echo $line | grep -Po "(?<==)[A-Za-z0-9._-]*")
 done
 
 #Build modline
-echo -n $(sed -z 's:\n:;:g' listdlc | sed 's:^:\":') > modline
-echo -n $(grep -Po '(?<==)[a-zA-Z0-9._-]*' listmods | sed 's:^:mods/lns/:g' | sed -z 's:\n:;:g' | sed 's:;$:":') >> modline
-docker cp modline arma:"$arma/mods/modline"
+sed -z 's:\n:;:g' listdlc | sed 's:^:\":' > modline
+grep -Po '(?<==)[a-zA-Z0-9._-]*' listmods | sed 's:^:mods/lns/:g' | sed -z 's:\n:;:g' | sed 's:;$:":' >> modline
