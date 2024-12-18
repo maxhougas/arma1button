@@ -60,7 +60,7 @@ echo -n "[steamguardcode]" > steamguard
 - restart.sh: invokes docker stop and docker start.
 - run.sh: invokes docker run. Will attempt to run arma. Incoming ports are specified here. Bind mounts are specified here.
 - savebackup.sh: invokes docker cp to back up arma:.../Player to the host system.
-- saverestore.sh: invokes docker cp to restore ./Player into amra:.../Player.
+- saverestore.sh: invokes docker cp to restore ./Player_<TIMESTAMP> into amra:.../Player.
 - server.cfg: config file. Example included.
 - steamguard: contains your steamguard code.
 - steaminst: a steam CMD script file. Will contain plaintext credentials. Dischaged and deleted after use by reinstall.sh. Not included.
