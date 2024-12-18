@@ -3,15 +3,15 @@
 arma=$(cat patharma)
 mod=$(cat pathmod)
 dexec="docker exec -t arma"
-workshop=$(cat workshop)
+manifest=$(cat pathmanifest)
 
 #remove record from appworkshop
-installed=$($dexec sed -z 's:\n:!!:g' $workshop | grep -Po $1.*?size.*?} | sed 's:":\\":g')
-details=$($dexec sed -z 's:\n:!!:g' $workshop | grep -o Details.*$ | grep -Po $1.*?timetouched.*?} | sed 's:":\\":g')
-$dexec sed -zi 's:\n:!!:g' $workshop
-$dexec sed -i "s:\"$installed::" $workshop
-$dexec sed -i "s:\"$details::" $workshop
-$dexec sed -i "s:!!:\n:g" $workshop
+installed=$($dexec sed -z 's:\n:!!:g' $manifest | grep -Po $1.*?size.*?} | sed 's:":\\":g')
+details=$($dexec sed -z 's:\n:!!:g' $manifest | grep -o Details.*$ | grep -Po $1.*?timetouched.*?} | sed 's:":\\":g')
+$dexec sed -zi 's:\n:!!:g' $manifest
+$dexec sed -i "s:\"$installed::" $manifest
+$dexec sed -i "s:\"$details::" $manifest
+$dexec sed -i "s:!!:\n:g" $manifest
 
 #remove data
 $dexec rm -rf "$mod/$1"

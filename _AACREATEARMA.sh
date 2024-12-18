@@ -6,4 +6,4 @@
 ./reinstall.sh
 ./finalizemods.sh
 ./finalizemissions.sh
-./restart.sh
+./runarma.sh

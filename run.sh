@@ -8,4 +8,4 @@ docker run -d \
  -p 27015:27015/udp \
  -p 27031-27036:27031-27036/udp \
  --name arma arma \
- ./mods/runarma.sh
+ tail -f /dev/null
