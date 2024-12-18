@@ -5,7 +5,7 @@
 ## The bullshit
 - Get docker.io
 - Create files creds and steamguard with your steam credentials and current steamguard code.
-- Create files modlist and missionlist as per the following section MODS. Examples included.
+- Create files listmods and listmissions as per the following section MODS. Examples included.
 - Create file server.cfg as per https://community.bistudio.com/wiki/Arma_3:_Server_Config_File. Example is included.
 ```
 echo -n "[steamuid] [steampasswd]" > creds
@@ -18,7 +18,7 @@ echo -n "[steamguardcode]" > steamguard
 - ArmA binaries can be updated by invoking updatearma.sh.
 
 ## Mods
-- The modlist and missionlist files are both of the following format
+- The listmods and listmissions files are both of the following format
 ```
 [IDNUMBER]=[ARBITRARYNAME]
 ```
@@ -41,19 +41,19 @@ echo -n "[steamguardcode]" > steamguard
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
 - dlsreinstall.sh: Attempts to install incomplete or missing mods and missions from missingmods and missingmissions.
-- dlsuninstall.sh: uninstalls a single mod. Deletes data and links. Scrubs the app manifest and modline. This requires the appropriate line to be present in modlist or missionlist.
-- dlsupdateall.sh: copies missionlist and modlist to missing missions and missingmods.
+- dlsuninstall.sh: uninstalls a single mod. Deletes data and links. Scrubs the app manifest and modline. This requires the appropriate line to be present in listmods or listmissions.
+- dlsupdateall.sh: copies listmissions and listmods to missing missions and missingmods.
 - dlsvalidate.sh: discharges missingmissions and missingmods for use by reinstall.sh. Does not work if no mods are installed.
 - dlswipeall.sh: uninstalls all mods. Deletes data and links. Scrubs the app manifest and modline.
 - dockerfile.db: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by build.sh.
 - finalizemissions.sh: creates softlinks from arma:.../mpmissions to arma:.../107410....
-- finalizemods.sh iterates modlist, and invokes linkkey.sh and linkmod.sh.
+- finalizemods.sh iterates listmods, and invokes linkkey.sh and linkmod.sh.
 - linkkey.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
 - linkmod.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
+- listmissions: contains idnumbers and mission names. Mission names *MUST* end with .[mapcode].
+- listmods: contains idnumbers and modnames. Mod names are arbitrary, but this system assumes names contain only [0-9A-Za-z._-]*.
 - missingmissions: discharged by validatedl.sh. Contains missing or incomplete missions.
 - missingmods: discharged by validatedl.sh. Contains missing or incomplete mods.
-- missionlist: contains idnumbers and mission names. Mission names *MUST* end with .[mapcode].
-- modlist: contains idnumbers and modnames. Mod names are arbitrary, but this system assumes names contain only [0-9A-Za-z._-]*.
 - patharma: contains the full path to arma:.../Arma\ 3\ Server, it is rendered as /Arma 3 Server though, be careful with that.
 - pathmod: contains the full path to arma:.../107410.
 - README.MD: this.
