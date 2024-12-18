@@ -17,9 +17,9 @@ $dexec sed -i "s:!!:\n:g" $manifest
 $dexec rm -rf "$mod/$1"
 
 #remove link
-name=$(grep $1 missionlist | grep -Po "(?<==)[a-zA-Z0-9._-]*")
+name=$(grep $1 listmissions | grep -Po "(?<==)[a-zA-Z0-9._-]*")
 $dexec rm -f "$arma/mpmissions/$name.pbo"
 
-name=$(grep $1 modlist | grep -Po "(?<==)[a-zA-Z0-9._-]*")
+name=$(grep $1 listmods | grep -Po "(?<==)[a-zA-Z0-9._-]*")
 $dexec rm -f "$arma/mods/lns/$name"
 $dexec sed -i "s:;mods/lns/$name::g" "$arma/mods/modline"

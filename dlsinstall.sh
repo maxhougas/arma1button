@@ -7,8 +7,8 @@ echo "empty?"
 exit 1
 fi
 
-mod=$(grep $1 modlist)
-mission=$(grep $1 missionlist)
+mod=$(grep $1 listmods)
+mission=$(grep $1 listmissions)
 
 if [ -n $mod -o -n $mission ]; then
 
@@ -16,6 +16,6 @@ docker exec -ti arma /steam/steamcmd.sh +login $(cat creds) +workshop_download_i
 
 else
 
-echo "Id not found in modlist or missionlist"
+echo "Id not found in listmods or listmissions"
 
 fi

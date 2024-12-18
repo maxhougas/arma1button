@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cp missionlist missingmissions
-cp modlist missingmods
+cp listmissions missingmissions
+cp listmods missingmods

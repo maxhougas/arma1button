@@ -4,8 +4,8 @@ arma=$(cat patharma)
 mod=$(cat pathmod)
 dexec='docker exec -t arma'
 
-#iterate missionlist
-for line in $(cat missionlist)
+#iterate listmissions
+for line in $(cat listmissions)
 do
 
 id=$(echo $line | grep -Po "[0-9]*(?==)")

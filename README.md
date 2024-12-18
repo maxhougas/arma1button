@@ -35,9 +35,16 @@ echo -n "[steamguardcode]" > steamguard
 
 ## Files
 - _AACREATEARMA.sh: Entrypoint.
+- armarun.sh: invokes docker exec to run the arma3server_x64 binary.
+- armaupdate.sh: attempts to update arma3 package.
 - build.sh: invokes docker build. Will attempt to build arma using maxhougas/steambox:db.
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
+- dlsreinstall.sh: Attempts to install incomplete or missing mods and missions from missingmods and missingmissions.
+- dlsuninstall.sh: uninstalls a single mod. Deletes data and links. Scrubs the app manifest and modline. This requires the appropriate line to be present in modlist or missionlist.
+- dlsupdateall.sh: copies missionlist and modlist to missing missions and missingmods.
+- dlsvalidate.sh: discharges missingmissions and missingmods for use by reinstall.sh. Does not work if no mods are installed.
+- dlswipeall.sh: uninstalls all mods. Deletes data and links. Scrubs the app manifest and modline.
 - dockerfile.db: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by build.sh.
 - finalizemissions.sh: creates softlinks from arma:.../mpmissions to arma:.../107410....
 - finalizemods.sh iterates modlist, and invokes linkkey.sh and linkmod.sh.
@@ -50,17 +57,12 @@ echo -n "[steamguardcode]" > steamguard
 - patharma: contains the full path to arma:.../Arma\ 3\ Server, it is rendered as /Arma 3 Server though, be careful with that.
 - pathmod: contains the full path to arma:.../107410.
 - README.MD: this.
-- reinstall.sh: Attempts to install incomplete or missing mods and missions from missingmods and missingmissions.
 - restart.sh: invokes docker stop and docker start.
 - run.sh: invokes docker run. Will attempt to run arma. Incoming ports are specified here. Bind mounts are specified here.
 - server.cfg: config file. Example included.
 - steamguard: contains your steamguard code.
 - steaminst: a steam CMD script file. Will contain plaintext credentials. Dischaged and deleted after use by reinstall.sh. Not included.
-- uninstallmod.sh: uninstalls a single mod. Deletes data and links. Scrubs the app manifest and modline.
-- updateall.sh: copies missionlist and modlist to missing missions and missingmods.
 - updatearma.sh: invokes arma:/steam/steam.sh to update the ArmA server executable.
-- validatedl.sh: discharges missingmissions and missingmods for use by reinstall.sh. Does not work if no mods are installed.
-- wipemods.sh: uninstalls all mods. Deletes data and links. Scrubs the app manifest and modline.
 
 ### Depricated
 - cheapinstall.sh installs and links mods and missions. Does the jobs of installmods.sh, installmissions.sh, linkmod.sh, and linkkey.sh.

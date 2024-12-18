@@ -3,8 +3,8 @@
 arma=$(cat patharma)
 dexec='docker exec -t arma'
 
-#iterate modlist
-for line in $(cat modlist)
+#iterate listmods
+for line in $(cat listmods)
 do
 
 id=$(echo $line | grep -Po "[0-9]*(?==)")
@@ -17,5 +17,5 @@ done
 
 #Build modline
 echo -n $(sed -z 's:\n:;:g' dlclist | sed 's:^:\":') > modline
-echo -n $(grep -Po '(?<==)[a-zA-Z0-9._-]*' modlist | sed 's:^:mods/lns/:g' | sed -z 's:\n:;:g' | sed 's:;$:":') >> modline
+echo -n $(grep -Po '(?<==)[a-zA-Z0-9._-]*' listmods | sed 's:^:mods/lns/:g' | sed -z 's:\n:;:g' | sed 's:;$:":') >> modline
 docker cp modline arma:"$arma/mods/modline"
