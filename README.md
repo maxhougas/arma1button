@@ -34,6 +34,7 @@ echo -n "[steamguardcode]" > steamguard
 - _AACREATEARMA.sh: Entrypoint. Will fail if your steam account uses steamguard.
 - armarun.sh: invokes docker exec to run the arma3server_x64 binary.
 - armaupdate.sh: attempts to update arma3 package.
+- arma.log: captures stdout and stderr from armarun.sh.
 - build.sh: invokes docker build. Will attempt to build arma using maxhougas/steambox:db.
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
