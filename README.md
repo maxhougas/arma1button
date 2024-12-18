@@ -15,7 +15,7 @@ echo -n "[steamguardcode]" > steamguard
 - Immediately check your email and update the steamguard file.
 - Run it from the top again. If you're fast enough it should accept the code.
 - Working directory is arma:.../Arma\ 3\ Server; however, most action takes place in arma:.../Arma\ 3\ Server/mods.
-- ArmA binaries can be updated by invoking updatearma.sh.
+- ArmA binaries can be updated by invoking armaupdate.sh.
 
 ## Mods
 - The listmods and listmissions files are both of the following format
@@ -30,11 +30,8 @@ echo -n "[steamguardcode]" > steamguard
 - The file modline is discharged to arma:.../Arma\ 3\ Server/mods
 - Missions and mods can be updated by invoking updateall.sh then reinstall.sh
 
-## Folder Structure
-- /save/ This is supposed to be where ArmA stores persistent saves. Useful for Antistasi.
-
 ## Files
-- _AACREATEARMA.sh: Entrypoint.
+- _AACREATEARMA.sh: Entrypoint. Will fail if your steam account uses steamguard.
 - armarun.sh: invokes docker exec to run the arma3server_x64 binary.
 - armaupdate.sh: attempts to update arma3 package.
 - build.sh: invokes docker build. Will attempt to build arma using maxhougas/steambox:db.
@@ -50,12 +47,15 @@ echo -n "[steamguardcode]" > steamguard
 - finalizemods.sh iterates listmods, and invokes linkkey.sh and linkmod.sh.
 - linkkey.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
 - linkmod.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
+- listdlc: contains codes for CDLC to be used.
 - listmissions: contains idnumbers and mission names. Mission names *MUST* end with .[mapcode].
 - listmods: contains idnumbers and modnames. Mod names are arbitrary, but this system assumes names contain only [0-9A-Za-z._-]*.
 - missingmissions: discharged by validatedl.sh. Contains missing or incomplete missions.
 - missingmods: discharged by validatedl.sh. Contains missing or incomplete mods.
-- patharma: contains the full path to arma:.../Arma\ 3\ Server, it is rendered as /Arma 3 Server though, be careful with that.
-- pathmod: contains the full path to arma:.../107410.
+- patharma: contains the full path to .../Arma\ 3\ Server/, it is rendered as /Arma 3 Server though, be careful with that.
+- pathmanifest: contains the full path to the steamcmd workshop manifest file.
+- pathmod: contains the full path to .../107410./
+- pathsave: contains the full path to .../Player/ where persistent saves are stored. Supersedes the bind mount system.
 - README.MD: this.
 - restart.sh: invokes docker stop and docker start.
 - run.sh: invokes docker run. Will attempt to run arma. Incoming ports are specified here. Bind mounts are specified here.
@@ -71,5 +71,6 @@ echo -n "[steamguardcode]" > steamguard
 - installmissions.sh: invokes docker exec > steamcmd.sh to download missions. Creates softlinks.
 - normalize.sh: iterates though modlist and normalizes folder and file names in ./107410/
 - prepfolder.sh: poorly named, creates .../mods and .../mods/lns; copies runarma.sh and server.cfg to .../mods; discharges dockerfile.db.
+- /save/ This is supposed to be where ArmA stores persistent saves. Useful for Antistasi. No longer used.
 - start.sh: invokes docker stop.
 - stop.sh: invokes docker stop.
