@@ -1,28 +1,22 @@
 #!/bin/bash
 
 #$1 = id
-#$2 = name
 
-mod=$(cat pathmod)
-arma=$(cat patharma)
 dexec='docker exec -t arma'
 
 #normalize addons folder
-addonsf=$($dexec ls $mod/$1 | grep -io addons)
-if [ -n $addonsf ] && [ $addonsf != addons ]; then
-$dexec mv $mod/$1/$addonsf $mod/$1/addons
+addonsf=$($dexec ls arma/ws/$1 | grep -io addons)
+if [ $addonsf != addons ]; then
+$dexec mv arma/ws/$1/$addonsf arma/ws/$1/addons
 fi
 
-#normalize pbo names
-for pname in $($dexec ls $mod/$1/addons | grep -io "[a-zA-Z0-9._-]*")
+for pname in $($dexec ls arma/ws/$1/addons | grep -io "[a-zA-Z0-9%._-]*")
 do
 
+#normalize pbo names
 npname=$(echo $pname | tr [A-Z] [a-z])
-if [ "$pname" != "$npname" ]; then
-$dexec mv $mod/$1/addons/$pname $mod/$1/addons/$npname
+if [ $npname != $pname ]; then
+$dexec mv arma/ws/$1/addons/$pname arma/ws/$1/addons/$npname
 fi
 
 done
-
-#link
-$dexec ln -sfT $mod/$1 "$arma/mods/lns/$2"

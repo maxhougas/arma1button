@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cp listmissions missingmissions
-cp listmods missingmods
+cp listmissions dlsmissing
+cat listmods >> dlsmissing

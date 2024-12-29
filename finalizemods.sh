@@ -1,20 +1,19 @@
 #!/bin/bash
 
-arma=$(cat patharma)
 dexec='docker exec -t arma'
 
 #iterate listmods
 for line in $(cat listmods)
 do
 
-id=$(echo $line | grep -Po "[0-9]*(?==)")
-mname=$(echo $line | grep -Po "(?<==)[A-Za-z0-9._-]*")
+id=$(echo $line | grep -o "^[0-9]*")
 
-./linkmod.sh $id $mname
+./linkmod.sh $id
 ./linkkey.sh $id
 
 done
 
 #Build modline
-sed -z 's:\n:;:g' listdlc | sed 's:^:\":' > modline
-grep -Po '(?<==)[a-zA-Z0-9._-]*' listmods | sed 's:^:mods/lns/:g' | sed -z 's:\n:;:g' | sed 's:;$:":' >> modline
+ml=$(sed -z 's:\n:;:g; s:^:-mod=:' listdlc)
+ml=$ml$(grep -o '^[0-9]*' listmods | sed -z 's:^:ws/:; s:\n:;ws/:g; s:;ws/$::')
+$dexec sed -i "s:^-mod=.*$:$ml:" params

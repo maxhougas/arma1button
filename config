@@ -12,4 +12,4 @@ motd[] =
  "ArmA3",
  "***"
 };
-motdInterval = 3;
+motdInterval = 0;

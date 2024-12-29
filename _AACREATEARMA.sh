@@ -2,8 +2,8 @@
 
 ./build.sh
 ./run.sh
-./updateall.sh
-./reinstall.sh
+./dlsupdateall.sh
+./dlsreinstall.sh
 ./finalizemods.sh
 ./finalizemissions.sh
-./armarun.sh
+docker exec -d arma ./entrypoint.sh

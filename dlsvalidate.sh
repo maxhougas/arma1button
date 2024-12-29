@@ -1,9 +1,15 @@
 #!/bin/bash
 
-mod=$(cat pathmod)
-arma=$(cat patharma)
 dexec='docker exec -t arma'
 
-found=$($dexec ls $mod | grep -o [0-9]* | sed -z 's:\n:|:g' | sed 's:|$::g')
-grep -Ev "$found" listmods > missingmods
-grep -Ev "$found" listmissions > missingmissions
+found=$($dexec ls arma/ws | grep -o '[0-9]*' | sed -z 's:\n:|:g; s:|$::')
+grep -Ev "$found" listmissions > dlsmissing
+grep -Ev "$found" listmods >> dlsmissing
+
+echo $found
+
+#fallback for nothing found
+if [ -z $found ]; then
+cp listmissions dlsmissing
+cat listmods >> dlsmissing
+fi
