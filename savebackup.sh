@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker cp arma:"$(cat pathsave)" ./Player_$(date +%Y%m%d_%H%M%S)
+docker cp -L arma:/home/user/save ./Player_$(date +%Y%m%d_%H%M%S)
