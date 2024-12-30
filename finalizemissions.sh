@@ -2,13 +2,14 @@
 
 dexec='docker exec -t arma'
 
-for id in $(cat listmissions | grep -o '^[0-9]*'); do
-uid=$($dexec ls /home/user/Steam/userdata | grep -o '[0-9]*')
+#find where the .pbos hide
+id=$(head -n 1 listmissions | grep -o '^[0-9]*')
 ugc=$($dexec ls arma/mods/$id | grep -o '[0-9]*')
-file=$( \
- $dexec ls -1 /home/user/Steam/userdata/$uid/ugc/referenced/$ugc |\
- grep -o ".*\.pbo" |\
- sed "s:^['\"]::" \
-)
-$dexec ln -sf "/home/user/Steam/userdata/$uid/ugc/referenced/$ugc/$file" arma/mpmissions
+dir=$($dexec find /home/user -name $ugc | grep -Po ".*(?=/$ugc)")
+
+#link .pbos
+for id in $(cat listmissions | grep -o '^[0-9]*'); do
+ugc=$($dexec ls arma/mods/$id | grep -o '[0-9]*')
+file=$($dexec grep filename $dir/$ugc/data.vdf | grep -o '[^"]*.pbo')
+$dexec ln -sf "$dir/$ugc/$file" arma/mpmissions/$file
 done
