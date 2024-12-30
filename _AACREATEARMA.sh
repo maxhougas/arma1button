@@ -1,7 +1,7 @@
 #!/bin/bash
 
-./build.sh
 ./run.sh
+./armaupdate.sh
 ./dlsupdateall.sh
 ./dlsreinstall.sh
 ./finalizemods.sh
