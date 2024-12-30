@@ -15,5 +15,5 @@ done
 
 #Build modline
 ml=$(sed -z 's:\n:;:g; s:^:-mod=:' listdlc)
-ml=$ml$(grep -o '^[0-9]*' listmods | sed -z 's:^:ws/:; s:\n:;ws/:g; s:;ws/$::')
+ml=$ml$(grep -o '^[0-9]*' listmods | sed -z 's:^:mods/:; s:\n:;mods/:g; s:;mods/$::')
 $dexec sed -i "s:^-mod=.*$:$ml:" params
