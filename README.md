@@ -5,11 +5,11 @@
 ## The bullshit
 - Get docker.io
 - Create file creds with your steam credentials and current steamguard code.
-- Create files listmods and listmissions as per the following section, Mods. Examples included.
 ```
 echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 ```
-- Create file config as per https://community.bistudio.com/wiki/Arma_3:_Server_Config_File. Example is included.
+- Create files listmods and listmissions as per the following section, Mods. Examples included.
+- Edit file config as per https://community.bistudio.com/wiki/Arma_3:_Server_Config_File. Example is included.
 - When ./build.sh is invoked by _AACREATEARMA.sh, Steam should reject your Steamguard code.
 - Immediately check your email and update the creds file.
 - Run it from the top again. If you're fast enough it should accept the code.
@@ -27,7 +27,7 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - reinstall.sh will discharge steaminst to arma:.../user/, invoke steamcmd, and delete arma:.../user/steaminst.
 - If the addons and keys folders' names are unnormalized, they are normalized by finalisemods.sh -> linkmod.sh.
 - Individual file names in arma:.../addons are normalized. Soft linkds are created in arma:.../arma/keys.
-- The modline inserted into arma:.../user/params possibly clobbering a previous modline.
+- The modline is inserted into arma:.../user/params possibly clobbering a previous modline.
 - Missions and mods can be updated by invoking dlsupdateall.sh then dlsreinstall.sh
 
 ## Files
