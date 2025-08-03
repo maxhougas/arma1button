@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -z $1 ]; then
 echo 'need backup time in format YYYYmmdd_HHMMSS'

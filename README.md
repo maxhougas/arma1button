@@ -1,4 +1,5 @@
-# Massive rewrite in progress. Tested successfully one (1) time! Documentation to follow
+# Structural changes.
+- Relies more heavily on containers to simplify deployment/operation.
 # ArmA1button
 1 button (almost) build, deploy ArmA 3 server with mods
 
@@ -31,34 +32,34 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - Missions and mods can be updated by invoking dlsupdateall.sh then dlsreinstall.sh
 
 ## Files
-- _AACREATEARMA.sh: Entrypoint. Will fail once if your steam account uses steamguard.
-- armarun.sh: invokes docker exec to run arma:.../entrypoint.sh -> arma:.../arma/arma3server_x64.
+- _AACREATEARMA.sh: Entrypoint. Will fail if your steam account uses steamguard. Honestly, unlikely to work.
 - armaupdate.sh: attempts to update arma3 package.
-- build.sh: invokes docker build. Will attempt to build arma using maxhougas/arma.bb.
+- build.sh: discharges dockerfile.ar.* and builds server container; invokes docker build.
+- create.sh: creates the server container. Config and saved files may be pushed before starting.
 - config: What they usually call server.cfg. Example included. See https://community.bistudio.com/wiki/Arma_3:_Server_Config_File
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
-- dlsmissing: contains missing mods and missions for use by dlsreinstall.sh
-- dlsreinstall.sh: Attempts to install incomplete or missing mods and missions from dlsmissiong.
-- dlsupdateall.sh: copies listmissions and listmods to dlsmissiong.
 - dlsvalidate.sh: discharges dlsmissing for use by reinstall.sh. Might not work if no mods are installed.
-- dockerfile.ar: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by build.sh.
-- finalizemissions.sh: creates softlinks from arma:.../mpmissions to arma:.../ugc/referenced.....
-- finalizemods.sh iterates listmods, and invokes linkkey.sh and linkmod.sh.
-- linkkey.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
-- linkmod.sh: invoked by finalizemods.sh. Normalizes filenames.
+- dockerfile.ar.*: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by build.sh.
 - listdlc: contains codes for CDLC to be used.
 - listmissions: contains idnumbers and mission names.
 - listmods: contains idnumbers and modnames. Mod names are arbitrary, but can only use characters froom the set [A-Za-z0-9%._-].
 - params: command line parameters for arma3server_x64. 
 - README.MD: this.
 - restart.sh: invokes docker stop and docker start.
-- run.sh: invokes docker run. Incoming ports are specified here.
 - savebackup.sh: invokes docker cp to back up arma:.../Player to the host system.
 - saverestore.sh: invokes docker cp to restore ./Player_<TIMESTAMP> into amra:.../Player.
 - steaminst: a steam CMD script file. Will contain plaintext credentials. Dischaged and deleted after use by reinstall.sh. Not included.
 
+### Internal Files
+- dlsmissing: contains missing mods and missions for use by dlsreinstall.sh
+- dlsreinstall.sh: Attempts to install incomplete or missing mods and missions from dlsmissiong.
+- dlsupdateall.sh: copies listmissions and listmods to dlsmissing.
+- finalizemissions.sh: creates softlinks from arma:.../mpmissions to arma:.../ugc/referenced....
+- finalizemods.sh iterates listmods, and invokes linkkey.sh and linkmod.sh.
+
 ### Depricated
+- armarun.sh: invokes docker exec to run arma:.../entrypoint.sh -> arma:.../arma/arma3server_x64.
 - arma.log: captures stdout and stderr from armarun.sh.
 - cheapinstall.sh installs and links mods and missions. Does the jobs of installmods.sh, installmissions.sh, linkmod.sh, and linkkey.sh.
 - dlsinstall.sh: DO NOT INVOKE.
@@ -68,11 +69,14 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - installmods.sh: invokes docker exec > steamcmd.sh to download mods. Creates appropriate softlinks and discharges the modline file.
 - installmissions.sh: invokes docker exec > steamcmd.sh to download missions. Creates softlinks.
 - normalize.sh: iterates though modlist and normalizes folder and file names in ./107410/
+- linkkey.sh: invoked by finalizemods.sh. Creates softlinks. Normalizes filenames.
+- linkmod.sh: invoked by finalizemods.sh. Normalizes filenames.
 - patharma: contains the full path to .../Arma\ 3\ Server/, it is rendered as /Arma 3 Server though, be careful with that.
 - pathmanifest: contains the full path to the steamcmd workshop manifest file.
 - pathmod: contains the full path to .../107410./
 - pathsave: contains the full path to .../Player/ where persistent saves are stored. Supersedes the bind mount system.
 - prepfolder.sh: poorly named, creates .../mods and .../mods/lns; copies runarma.sh and server.cfg to .../mods; discharges dockerfile.db.
+- run.sh: invokes docker run. Incoming ports are specified here.
 - /save/ This is supposed to be where ArmA stores persistent saves. Useful for Antistasi. No longer used.
 - start.sh: invokes docker stop.
 - stop.sh: invokes docker stop.
