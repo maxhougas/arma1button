@@ -10,7 +10,7 @@
 echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 ```
 - Create files listmods and listmissions as per the following section, Mods. Examples included.
-- Edit file config as per https://community.bistudio.com/wiki/Arma_3:_Server_Config_File. Example is included.
+- Edit file config as per [Arma3 Wiki](https://community.bistudio.com/wiki/Arma_3:_Server_Config_File). Example is included.
 - When ./build.sh is invoked by _AACREATEARMA.sh, Steam should reject your Steamguard code.
 - Immediately check your email and update the creds file.
 - Run it from the top again. If you're fast enough it should accept the code.
@@ -23,7 +23,7 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 ```
 [IDNUMBER]=[ARBITRARYNAME]
 ```
-- Mods can be named anything limited by the character set [A-Za-z0-9%._-].
+- Mods can be named anything limited by the character set `[A-Za-z0-9%._-]`.
 - Missions and mods are downloaded in the usual manner by invoking dlsvalidate.sh or dlsupdateall.sh then reinstall.sh. Successful downloads end up in /home/user/Steam ... somewhere.
 - reinstall.sh will discharge steaminst to arma:.../user/, invoke steamcmd, and delete arma:.../user/steaminst.
 - If the addons and keys folders' names are unnormalized, they are normalized by finalisemods.sh -> linkmod.sh.
@@ -43,8 +43,7 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - dockerfile.ar.*: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by build.sh.
 - listdlc: contains codes for CDLC to be used.
 - listmissions: contains idnumbers and mission names.
-- listmods: contains idnumbers and modnames. Mod names are arbitrary, but can only use characters froom the set [A-Za-z0-9%._-].
-- params: command line parameters for arma3server_x64. 
+- listmods: contains idnumbers and modnames. Mod names are arbitrary, but can only use characters froom the set `[A-Za-z0-9%._-]`.
 - README.MD: this.
 - restart.sh: invokes docker stop and docker start.
 - savebackup.sh: invokes docker cp to back up arma:.../Player to the host system.
@@ -57,6 +56,7 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - dlsupdateall.sh: copies listmissions and listmods to dlsmissing.
 - finalizemissions.sh: creates softlinks from arma:.../mpmissions to arma:.../ugc/referenced....
 - finalizemods.sh iterates listmods, and invokes linkkey.sh and linkmod.sh.
+- params: command line parameters for arma3server_x64. 
 
 ### Depricated
 - armarun.sh: invokes docker exec to run arma:.../entrypoint.sh -> arma:.../arma/arma3server_x64.
