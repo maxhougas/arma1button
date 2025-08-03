@@ -11,7 +11,7 @@ fi
 #Discharge dockerfile base game layer 
 echo 'FROM maxhougas/arma3:tem' > dockerfile.ar.base
 echo "RUN su -c 'steamcmd/steamcmd.sh +force_install_dir ~/arma +login $(cat creds) +app_update 233780 $base +quit' user" >> dockerfile.ar.base
-echo 'COPY config ./' >> dockerfile.ar.base
+echo 'COPY server.cfg ./' >> dockerfile.ar.base
 echo 'RUN echo "arma built from maxhougas/arma3temp:bb on $(date +%Y%m%d)" >> /info.txt' >> dockerfile.ar.base
 echo 'USER user:user' >> dockerfile.ar.base
 echo 'CMD tail -f /dev/null' >> dockerfile.ar.base

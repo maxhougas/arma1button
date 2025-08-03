@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
-docker cp config arma:/home/user
+docker cp server.cfg arma:/home/user
 docker cp params arma:/home/user

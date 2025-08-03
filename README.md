@@ -10,8 +10,8 @@
 echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 ```
 - Create files listmods and listmissions as per the following section, Mods. Examples included.
-- Edit file config as per [Arma3 Wiki](https://community.bistudio.com/wiki/Arma_3:_Server_Config_File). Example is included.
-- When ./build.sh is invoked by _AACREATEARMA.sh, Steam should reject your Steamguard code.
+- Edit file server.cfg as per [Arma3 Wiki]([Arma3 Wiki](https://community.bistudio.com/wiki/Arma_3:_Server_Config_File)). Example is included.
+- When ./build.sh is invoked by AACREATEARMA.sh, Steam should reject your Steamguard code.
 - Immediately check your email and update the creds file.
 - Run it from the top again. If you're fast enough it should accept the code.
 - Working directory is arma:/home/user/.
@@ -32,15 +32,15 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - Missions and mods can be updated by invoking dlsupdateall.sh then dlsreinstall.sh
 
 ## Files
-- _AACREATEARMA.sh: Entrypoint. Will fail if your steam account uses steamguard. Honestly, unlikely to work.
+- AACREATEARMA.sh: Entrypoint. Will fail if your steam account uses steamguard. Honestly, unlikely to work.
 - armaupdate.sh: attempts to update arma3 package.
 - build.sh: discharges dockerfile.ar.* and builds server container; invokes docker build.
-- create.sh: creates the server container. Config and saved files may be pushed before starting.
-- config: What they usually call server.cfg. Example included. See https://community.bistudio.com/wiki/Arma_3:_Server_Config_File
+- create.sh: creates the server container. Config and saved games may be pushed before starting.
+- server.cfg: Example included. See [Arma3 Wiki](https://community.bistudio.com/wiki/Arma_3:_Server_Config_File)
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
 - dlsvalidate.sh: discharges dlsmissing for use by reinstall.sh. Might not work if no mods are installed.
-- dockerfile.ar.*: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by build.sh.
+- dockerfile.ar....: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by build.sh.
 - listdlc: contains codes for CDLC to be used.
 - listmissions: contains idnumbers and mission names.
 - listmods: contains idnumbers and modnames. Mod names are arbitrary, but can only use characters froom the set `[A-Za-z0-9%._-]`.
