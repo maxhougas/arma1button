@@ -24,7 +24,7 @@ else
 #Discharge dockerfile dlc layer
 echo 'FROM arma3:base' > dockerfile.ar.dlc
 echo 'COPY ["listdlc","listmissions","listmods","./"]' >> dockerfile.ar.dlc
-echo "RUN su -c './dlsupdateall.sh && ./dlsreinstall.sh && ./finalizemissions.sh && ./finalizemods.sh' user" >> dockerfile.ar.dlc
+echo "RUN su -c './dlsupdateall.sh && ./dlsreinstall.sh $(cat creds) && ./finalizemissions.sh && ./finalizemods.sh' user" >> dockerfile.ar.dlc
 echo 'RUN echo "arma3:dlc built from arma3:base on $(date +%Y%m%d)" >> /info.txt' >> dockerfile.ar.dlc
 echo 'USER user:user' >> dockerfile.ar.dlc
 
