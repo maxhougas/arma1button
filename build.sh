@@ -12,9 +12,7 @@ fi
 echo 'FROM maxhougas/arma3:tem' > dockerfile.ar.base
 echo "RUN su -c 'steamcmd/steamcmd.sh +force_install_dir ~/arma +login $(cat creds) +app_update 233780 $base +quit' user" >> dockerfile.ar.base
 echo 'COPY server.cfg ./' >> dockerfile.ar.base
-echo 'RUN echo "arma built from maxhougas/arma3temp:bb on $(date +%Y%m%d)" >> /info.txt' >> dockerfile.ar.base
-echo 'USER user:user' >> dockerfile.ar.base
-echo 'CMD tail -f /dev/null' >> dockerfile.ar.base
+echo 'RUN echo "arma3:base built from maxhougas/arma3:tem on $(date +%Y%m%d)" >> /info.txt' >> dockerfile.ar.base
 
 #build image
 docker build -t arma3:base -f dockerfile.ar.base .
@@ -27,6 +25,8 @@ else
 echo 'FROM arma3:base' > dockerfile.ar.dlc
 echo 'COPY ["listdlc","listmissions","listmods","./"]' >> dockerfile.ar.dlc
 echo "RUN su -c './dlsupdateall.sh && ./dlsreinstall.sh && ./finalizemissions.sh && ./finalizemods.sh' user" >> dockerfile.ar.dlc
+echo 'RUN echo "arma3:dlc built from arma3:base on $(date +%Y%m%d)" >> /info.txt' >> dockerfile.ar.dlc
+echo 'USER user:user' >> dockerfile.ar.dlc
 
 #build image
 docker build -t arma3:dlc -f dockerfile.ar.dlc .
