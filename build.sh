@@ -32,5 +32,5 @@ echo 'USER user:user' >> dockerfile.ar.dlc
 docker build -t arma3:dlc -f dockerfile.ar.dlc .
 
 #Obliterate credentials
-rm dockerfile.ar.base
+rm dockerfile.ar.dlc
 fi
