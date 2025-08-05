@@ -14,7 +14,7 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - When ./build.sh is invoked by AACREATEARMA.sh, Steam should reject your Steamguard code.
 - Immediately check your email and update the creds file.
 - Run it from the top again. If you're fast enough it should accept the code.
-- Working directory is arma:/home/user/.
+- Working directory is arma:/home/user/arma.
 - ArmA binaries can be updated by invoking armaupdate.sh.
 
 ## Mods
@@ -34,12 +34,11 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 ## Files
 - AACREATEARMA.sh: Entrypoint. Will fail if your steam account uses steamguard. Honestly, unlikely to work.
 - armaupdate.sh: attempts to update arma3 package.
-- build.sh: discharges dockerfile.ar.* and builds server container; invokes docker build.
+- build.sh: discharges dockerfile.ar.* and builds server container images.
 - create.sh: creates the server container. Config and saved games may be pushed before starting.
 - server.cfg: Example included. See [Arma3 Wiki](https://community.bistudio.com/wiki/Arma_3:_Server_Config_File)
 - creds: contains your actual Steam credentials in plaintext. Super-duper secure, never blind or delete this file. Not included.
 - dexec.sh: invokes docker exec. Can only take a single argument.
-- dlsvalidate.sh: discharges dlsmissing for use by reinstall.sh. Might not work if no mods are installed.
 - dockerfile.ar....: used when invoking docker build (build.sh). Will contain plaintext credentials. Discharged and deleted after use by build.sh.
 - listdlc: contains codes for CDLC to be used.
 - listmissions: contains idnumbers and mission names.
@@ -47,16 +46,16 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - README.MD: this.
 - restart.sh: invokes docker stop and docker start.
 - savebackup.sh: invokes docker cp to back up arma:.../Player to the host system.
-- saverestore.sh: invokes docker cp to restore ./Player_<TIMESTAMP> into amra:.../Player.
-- steaminst: a steam CMD script file. Will contain plaintext credentials. Dischaged and deleted after use by reinstall.sh. Not included.
+- saverestore.sh: invokes docker cp to restore ./save_<TIMESTAMP> into amra:.../Player.
 
 ### Internal Files
 - dlsmissing: contains missing mods and missions for use by dlsreinstall.sh
 - dlsreinstall.sh: Attempts to install incomplete or missing mods and missions from dlsmissiong.
 - dlsupdateall.sh: copies listmissions and listmods to dlsmissing.
+- dlsvalidate.sh: discharges dlsmissing for use by reinstall.sh. Might not work if no mods are installed.
 - finalizemissions.sh: creates softlinks from arma:.../mpmissions to arma:.../ugc/referenced....
 - finalizemods.sh iterates listmods, and invokes linkkey.sh and linkmod.sh.
-- params: command line parameters for arma3server_x64. 
+- params: command line parameters for .../arma/arma3server_x64. 
 
 ### Depricated
 - armarun.sh: invokes docker exec to run arma:.../entrypoint.sh -> arma:.../arma/arma3server_x64.
@@ -79,4 +78,5 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - run.sh: invokes docker run. Incoming ports are specified here.
 - /save/ This is supposed to be where ArmA stores persistent saves. Useful for Antistasi. No longer used.
 - start.sh: invokes docker stop.
+- steaminst: a steam CMD script file. Will contain plaintext credentials. Dischaged and deleted after use by reinstall.sh. Not included.
 - stop.sh: invokes docker stop.
