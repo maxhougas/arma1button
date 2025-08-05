@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$1" = 'nodlc' ]; then
+if [ "$1" = 'nomod' ]; then
 
 if [ "$2" = 'base' ]; then
 base=''
