@@ -44,7 +44,6 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - listmissions: contains idnumbers and mission names.
 - listmods: contains idnumbers and modnames. Mod names are arbitrary, but can only use characters froom the set `[A-Za-z0-9%._-]`.
 - README.MD: this.
-- restart.sh: invokes docker stop and docker start.
 - savebackup.sh: invokes docker cp to back up arma:.../Player to the host system.
 - saverestore.sh: invokes docker cp to restore ./save_<TIMESTAMP> into amra:.../Player.
 
@@ -75,6 +74,7 @@ echo -n "[steamuid] [steampasswd] [steamguardcode]" > creds
 - pathmod: contains the full path to .../107410./
 - pathsave: contains the full path to .../Player/ where persistent saves are stored. Supersedes the bind mount system.
 - prepfolder.sh: poorly named, creates .../mods and .../mods/lns; copies runarma.sh and server.cfg to .../mods; discharges dockerfile.db.
+- restart.sh: invokes docker stop and docker start.
 - run.sh: invokes docker run. Incoming ports are specified here.
 - /save/ This is supposed to be where ArmA stores persistent saves. Useful for Antistasi. No longer used.
 - start.sh: invokes docker stop.
