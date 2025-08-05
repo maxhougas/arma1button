@@ -2,5 +2,6 @@
 
 docker create \
  -p 0.0.0.0:2302-2306:2302-2306/udp \
+ -w /home/user/arma \
  --name arma arma3:${1:-dlc} \
- chown -LR user:user /home/user/save && su -c '/home/user/arma/arma3server_x64 -par=/home/user/params' user
+ sh -c "chown -LR user:user /home/user/save && su -c './arma3server_x64 -par=/home/user/params' user"
