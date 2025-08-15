@@ -5,6 +5,7 @@
 ##END_BASE##
 
 ##TOPMODS##
+2252825701=aafalpat
 2867537125=antistasithemod
 1199493544=arma2anims
 2551407805=bmcpmcuniforms
@@ -23,7 +24,9 @@
 
 ##CBAMODS##
 2946868556=acstg!
+949252631=aegis
 3346427969=hatg
+3333302397=jcainfantryarsenal
 1593431569=magrepack
 632435682=removestamina
 894678801=tfar
@@ -46,6 +49,15 @@
 843593391=rhsgref
 843632231=rhssaf
 ##END_RHSMODS##
+
+##CBAAEGISMODS##
+2225873516=atlas
+##END_CBAAEGISMODS##
+
+##CBAAEGISATLASMODS##
+2225865544=aegispolice
+1873244913=atlasopfor
+##END_CBAAEGISATLASMODS##
 
 ##CBARHSMODS##
 3366918628=realflashlights
